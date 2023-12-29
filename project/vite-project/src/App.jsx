@@ -1,19 +1,17 @@
-import Hero from "./component/Hero";
-
+import { useRef } from "react";
 const App = () => {
 
-  const itemObj = {
-    name : "mahin",
-    roll:334,
-    city:"barish"
+  let elem = useRef()
+
+  function change () {
+    elem.current.classList.remove("bg-danger")
+    elem.current.classList.add ("bg-success")
   }
-
-
-
   return (
     <div>
+      <h1 className="bg-danger" ref={elem}>How are you ?</h1>
 
-    <Hero item={itemObj}/>
+      <button onClick={change}>Click</button>
     </div>
   );
 };
